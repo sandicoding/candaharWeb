@@ -15,6 +15,12 @@ class CreateArticelsTable extends Migration
     {
         Schema::create('articels', function (Blueprint $table) {
             $table->bigIncrements('id');
+            $table->string('title');
+            $table->string('slug')->unique();
+            $table->string('thumbnail');
+            $table->usignedBigInteger('author');
+            $table->longtext('content');
+            $table->bigInteger('viewer');
             $table->timestamps();
         });
     }
